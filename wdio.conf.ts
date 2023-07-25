@@ -70,7 +70,7 @@ export const config: Options.Testrunner = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:
@@ -303,6 +303,16 @@ export const config: Options.Testrunner = {
      */
     // after: function (result, capabilities, specs) {
     // },
+    // afterScenario: async function (world, result, context) {
+    //     console.log("dit is de log van result :" , result)
+    //     console.log("context buiten if  ", context)
+    //      if (result.passed === true) {
+    //     //   // If the scenario has failed, capture a screenshot
+    //     //   const scenarioName = context.    .name.replace(/ /g, '_'); // Remove spaces from the scenario name
+    //     console.log("context is ", context)
+    //     await browser.saveScreenshot(`../screenshots/Test-failed.png`);
+    //     }
+    //   },
     /**
      * Gets executed right after terminating the webdriver session.
      * @param {object} config wdio configuration object
