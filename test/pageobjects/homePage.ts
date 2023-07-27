@@ -2,16 +2,21 @@ import BasePage from "./_basePage.js";
 import { homePageSelectors } from "../../params.js";
 
 
+export default class HomePage extends BasePage {
+  private get clothesButton(): Promise<WebdriverIO.Element> {
+    return $(homePageSelectors.clothesButton);
+  }
 
+  private get searchCatalogField(): Promise<WebdriverIO.Element> {
+    return $(homePageSelectors.searchCatalaogInputField);
+  }
 
-export default class HomePage extends BasePage{
+  async clickSearchCatalog(category: string) {
+    // this.expect(category).to.be.oneOf(["Sunglasses", "Contact-lenses", "Frames", "Solutions"], "input not correct, please check the feature file")
+    await (await this.searchCatalogField).click();
+  }
 
-    private get clothesButton(): Promise<WebdriverIO.Element> {
-        return $(homePageSelectors.clothesButton)
-    }
-   
-    async clickClothesButton() {
-        (await this.clothesButton).click()
-    }
-    
+  async clickClothesButton() {
+    await (await this.clothesButton).click();
+  }
 }

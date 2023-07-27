@@ -6,6 +6,11 @@ const homePage = new HomePage()
 Given(/^The user is on the homepage$/, async () => {
   await homePage.openValoriWebshop();
   await homePage.checkTitle();
-  await homePage.clickClothesButton();
+  // await homePage.clickClothesButton();
   // await homePage.waitButKeepTheTestAlive(); 
+});
+
+
+When(/^the user searches for a product$/, () => {
+	// await homePage.clickSearchCatalog
 });

@@ -1,7 +1,7 @@
 Feature: The Internet Guinea Pig Website
 
 
-   @Dev
+   @DeV
   Scenario Outline: As a user, I can log into the secure area
 
     Given I am on the "login" page
@@ -11,5 +11,5 @@ Feature: The Internet Guinea Pig Website
 
     Examples:
       | username | password             | message                        |
-      | tomsmith | SuperrSecretPassword! | You logged into a secure area! |
+      | tomsmith | SuperSecretPassword! | You logged into a secure area! |
       | foobar   | barfoo               | Your username is invalid!      |

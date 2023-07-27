@@ -1,7 +1,7 @@
-export const feUrls = {
-    feUrl: "https://webshop.mobiletestautomation.nl/"
+export const homePageSelectors = {
+    searchCatalaogInputField: "input[type='text']",
+    clothesButton: "#category-3"
+    
 }
 
-export const homePageSelectors = {
-    clothesButton: "#category-3"
-}
+

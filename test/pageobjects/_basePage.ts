@@ -13,8 +13,8 @@ export default class BasePage {
   }
 
   async checkTitle() {
-    const title = await  browser.getTitle();
-    this.log.info("This is the title of the URL:", title)
+    const title = (await browser.getTitle());
+    this.log.info("This is the title of the URL:", title);
   }
 
   async waitForPageToLoad() {
