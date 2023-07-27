@@ -11,6 +11,7 @@ Given(/^The user is on the homepage$/, async () => {
 });
 
 
-When(/^the user searches for a product$/, () => {
-	// await homePage.clickSearchCatalog
+When(/^The user searches for "(.*?)" as a product$/, async (category: string) => {
+	await homePage.clickSearchCatalog(category);
+  // await homePage.waitButKeepTheTestAlive(); 
 });
