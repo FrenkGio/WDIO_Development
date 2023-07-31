@@ -30,12 +30,9 @@ export default class HomePage extends BasePage {
 
   async clickClothesButton() {
     await (await this.clothesButton).click();
-    // await (await $("#category-3")).click();
   }
 
   async clickSignIn() {
-    // console.log("dit werkt al niet")
-    // await (await $("div#_desktop_cart")).click()
        await (await this.signInButton).click();
   }
 }

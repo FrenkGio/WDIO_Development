@@ -11,7 +11,10 @@ When(/^The user signs in$/, async () => {
 	await accountPage.fillInAccountDetails();
 });
 
-
 Then(/^The user is signed in$/, async () => {
 	await accountPage.verifyUserIsLoggedIn();
+});
+
+When(/^Then user creates an account$/, async () => {
+	await homePage.clickSignIn();
 });
