@@ -17,4 +17,5 @@ Then(/^The user is signed in$/, async () => {
 
 When(/^Then user creates an account$/, async () => {
 	await homePage.clickSignIn();
+	await accountPage.createNewAccount()
 });

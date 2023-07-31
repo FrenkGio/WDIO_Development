@@ -5,4 +5,5 @@ Feature: Register account
 
         Given The user is on the homepage
         When Then user creates an account
+        Then The user is signed in
     
