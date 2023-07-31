@@ -44,12 +44,15 @@ export default class HomePage extends BasePage {
     console.log("ik log nu de ALT text, niet de beste validatie", altText)
 
     await expect(altText).toContain("t-shirt")
+    
 
 
     const deeperInDom =  await $$('[alt*="shirt"]')
     const textVan = await deeperInDom[0].getAttribute('alt')
+    const nogDeeper = await $$('img[alt*="shirt"]')
+    const textVanDeeper = await nogDeeper[0].getAttribute('alt')
     console.log("Ik log nu de constante deeperInDom", textVan)
-
+    console.log("Ik log nu de constante nogDeeper", textVan)
 
     await results[0].click()
     
