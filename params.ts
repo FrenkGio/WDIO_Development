@@ -8,7 +8,8 @@ export const homePageSelectors = {
 export const accountPageSelectors = {
     emailField: "input[type='email']",
     passwordField: "input[type='password']",
-    signInButton: "button#submit-login"
+    signInButton: "button#submit-login",
+    signOutButton: "a.logout"
 }
 
 

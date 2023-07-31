@@ -9,6 +9,9 @@ const accountPage = new AccountPage()
 When(/^The user signs in$/, async () => {
 	await homePage.clickSignIn();
 	await accountPage.fillInAccountDetails();
-	await homePage.waitButKeepTheTestAlive();
 });
 
+
+Then(/^The user is signed in$/, async () => {
+	await accountPage.verifyUserIsLoggedIn();
+});

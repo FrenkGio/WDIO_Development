@@ -13,5 +13,3 @@ When(/^The user searches for "(.*?)" as a product$/, async (category: string) =>
 	await homePage.searchForCatalogProduct(category);
   await homePage.validateSearchResult(category);
 });
-
-
