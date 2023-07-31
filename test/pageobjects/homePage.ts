@@ -14,16 +14,20 @@ export default class HomePage extends BasePage {
 
   async clickSearchCatalog(category: string) {
     // await expect(category).toContain(["shirt" , "mug"]) ASK ICO
-    const expected = [
+    const expectedProducts = [
         "shirt", 
         "mug"
     ]
-    
-    // await expect(category).toContain(expected) ASK ICO DIT OOK, is dit omdat je zegt, ik verwacht dat shirt , de array contained ? terwijl andersom is het ik verwacht dat de array, iig category contained
-    await expect(expected).toContain(category) 
+    await expect(expectedProducts).toContain(category) 
     await (await this.searchCatalogField).click();
     await (await this.searchCatalogField).addValue(category);
     await browser.keys([Key.Enter])
+  }
+
+  async validateSearchResult(category: string) {
+    const results = await $$("a.product-thumbnail img")
+    const attributeText = await results[0].getAttribute("alt")
+    await expect(attributeText).toContain(category)
   }
 
   async clickClothesButton() {
