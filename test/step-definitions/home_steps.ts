@@ -13,6 +13,6 @@ Given(/^The user is on the homepage$/, async () => {
 
 When(/^The user searches for "(.*?)" as a product$/, async (category: string) => {
 	await homePage.clickSearchCatalog(category);
-  await homePage.validateSearchResult();
+  await homePage.validateSearchResult(category);
   // await homePage.waitButKeepTheTestAlive(); 
 });
