@@ -1,7 +1,11 @@
 import logger from "@wdio/logger";
-
+import { homePageSelectors } from "../../params.js";
 export default class BasePage {
   public log = logger("test-framework");
+
+  private get searchResults(): Promise<WebdriverIO.Element[]> {
+    return $$(homePageSelectors.searchResults);
+  }
 
   public unitLogTest() {
     console.log("Console log fubar ");
@@ -51,4 +55,10 @@ export default class BasePage {
       i++;
     } while (i < seconds);
   }
+
+  async validateSearchResult(category: string) {
+    const attributeText = await this.searchResults[0].getAttribute("alt")
+    await expect(attributeText).toContain(category)
+  }
 }
+
