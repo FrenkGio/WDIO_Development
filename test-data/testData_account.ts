@@ -1,3 +1,5 @@
+
+
 export const loginData = {
     email: "dantester@jourrapide.com",
     password: "1qazxsw2"
@@ -6,7 +8,7 @@ export const loginData = {
 export const signUpData = {
     firstName:"Dan",
     lastName:"Tetser",
-    email:"lilDannyy@test.com",
+    email: '',
     password:"Welcome23",
     DOB:"06/05/1999"
 }

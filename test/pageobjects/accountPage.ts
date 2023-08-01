@@ -1,8 +1,7 @@
 import BasePage from "./_basePage.js";
 import { accountPageSelectors, homePageSelectors } from "../../params.js";
-import { Key } from "webdriverio";
 import { loginData, signUpData } from "../../test-data/testData_account.js";
-import { test } from "node:test";
+import { randomBytes } from 'crypto';
 
 export default class AccountPage extends BasePage {
   private get emailInputField(): Promise<WebdriverIO.Element> {
@@ -57,6 +56,7 @@ export default class AccountPage extends BasePage {
 
   async verifyUserIsLoggedIn(){
     await (await this.signOutButton).waitForDisplayed({timeout:5000, timeoutMsg:"Expected to see the sign out button"})
+  
   }
 
   async createNewAccount() {
@@ -64,11 +64,26 @@ export default class AccountPage extends BasePage {
     await (await this.selectSocialTitle).click()
     await (await this.fillInFirstName).addValue(signUpData.firstName);
     await (await this.fillInLastName).addValue(signUpData.lastName);
-    await (await this.fillInEmail).addValue(signUpData.email);
+    const newEmailAddress = await this.generateRandomEmail();
+    await (await this.fillInEmail).addValue(newEmailAddress);
     await (await this.fillInPassword).addValue(signUpData.password);
     await (await this.fillInDOB).addValue(signUpData.DOB);
     await (await this.signUpForNewsletter).click();
     await (await this.saveAndSubmit).click();
   }
 
+  async generateRandomEmail(): Promise<string> {
+    const randomBytesAsync = (): Promise<Buffer> =>
+      new Promise((resolve, reject) => {
+        randomBytes(16, (err, buf) => {
+          if (err) reject(err);
+          else resolve(buf);
+        });
+      });
+  
+    const randomString = (await randomBytesAsync()).toString('hex');
+    const domain = 'example.com'; // Replace this with your desired domain
+    const email = `test_${randomString}@${domain}`; // Concatenate the random string with the domain
+    return email;
+  }
 }
