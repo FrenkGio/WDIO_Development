@@ -75,8 +75,4 @@ export default class BasePage {
   const randomEmail = await this.generateRandomEmail();
   this.log.info("The random email generated is: ", randomEmail)
   }
-  
-  
-
 }
-
