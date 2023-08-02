@@ -1,7 +1,6 @@
 import BasePage from "./_basePage.js";
 import { accountPageSelectors, homePageSelectors } from "../../params.js";
 import { loginData, signUpData } from "../../test-data/testData_account.js";
-import { randomBytes } from 'crypto';
 
 export default class AccountPage extends BasePage {
   private get emailInputField(): Promise<WebdriverIO.Element> {
@@ -65,25 +64,11 @@ export default class AccountPage extends BasePage {
     await (await this.fillInFirstName).addValue(signUpData.firstName);
     await (await this.fillInLastName).addValue(signUpData.lastName);
     const newEmailAddress = await this.generateRandomEmail();
+    await this.logRandomEmail(); // just some logging code to check the random email being used.
     await (await this.fillInEmail).addValue(newEmailAddress);
     await (await this.fillInPassword).addValue(signUpData.password);
     await (await this.fillInDOB).addValue(signUpData.DOB);
     await (await this.signUpForNewsletter).click();
     await (await this.saveAndSubmit).click();
-  }
-
-  async generateRandomEmail(): Promise<string> {
-    const randomBytesAsync = (): Promise<Buffer> =>
-      new Promise((resolve, reject) => {
-        randomBytes(16, (err, buf) => {
-          if (err) reject(err);
-          else resolve(buf);
-        });
-      });
-  
-    const randomString = (await randomBytesAsync()).toString('hex');
-    const domain = 'example.com'; // Replace this with your desired domain
-    const email = `test_${randomString}@${domain}`; // Concatenate the random string with the domain
-    return email;
   }
 }

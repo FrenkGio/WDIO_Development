@@ -60,5 +60,23 @@ export default class BasePage {
     const attributeText = await this.searchResults[0].getAttribute("alt")
     await expect(attributeText).toContain(category)
   }
+
+  async generateRandomEmail(): Promise<string> {
+    const letters = 'abcdefghijklmnopqrstuvwxyz';
+    const randomInt = Math.floor(Math.random() * 1000);
+    const randomLetter1 = letters.charAt(Math.floor(Math.random() * letters.length));
+    const randomLetter2 = letters.charAt(Math.floor(Math.random() * letters.length));
+  
+    const randomEmail = `user${randomLetter1}${randomLetter2}${randomInt}@example.com`;
+    return randomEmail;
+    
+  }
+  async logRandomEmail(){
+  const randomEmail = await this.generateRandomEmail();
+  this.log.info("The random email generated is: ", randomEmail)
+  }
+  
+  
+
 }
 
