@@ -1,6 +1,6 @@
 Feature: Register account
 
-    @Dev @Testt
+    @Dev @Test
     Scenario: As a user, I want to be able to create an account
 
         Given The user is on the homepage

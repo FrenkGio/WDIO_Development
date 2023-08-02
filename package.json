@@ -1,7 +1,10 @@
 {
-  "name": "my-new-project",
+  "name": "Franke's WDIO Project",
   "author": {
-    "name": "Franke Thanopoulos"
+    "name": "Franke Thanopoulos",
+    "version": "1.0.0",
+    "email": "giorgos87@hotmail.com",
+    "description": "A basic WDIO/TS project"
   },
   "type": "module",
   "devDependencies": {

@@ -1,7 +1,7 @@
 Feature: Sign in
 
 
-    @DevV
+    @Dev
     Scenario: As a user I want to sign into my account
 
         Given The user is on the homepage
