@@ -4,7 +4,8 @@
     "name": "Franke Thanopoulos",
     "version": "1.0.0",
     "email": "giorgos87@hotmail.com",
-    "description": "A basic WDIO/TS project"
+    "description": "A basic WDIO/TS project",
+    "license": "ISC"
   },
   "type": "module",
   "devDependencies": {
